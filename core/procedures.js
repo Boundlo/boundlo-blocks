@@ -261,7 +261,7 @@ Blockly.Procedures.addCreateButton_ = function(workspace, xmlList) {
 
 /**
  * Find all callers of a named procedure.
- * @param {string} name Name of procedure (procCode in scratch-blocks).
+ * @param {string} name Name of procedure (procCode in boundlo-blocks).
  * @param {!Blockly.Workspace} ws The workspace to find callers in.
  * @param {!Blockly.Block} definitionRoot The root of the stack where the
  *     procedure is defined.
@@ -300,7 +300,7 @@ Blockly.Procedures.getCallers = function(name, ws, definitionRoot,
 
 /**
  * Find and edit all callers with a procCode using a new mutation.
- * @param {string} name Name of procedure (procCode in scratch-blocks).
+ * @param {string} name Name of procedure (procCode in boundlo-blocks).
  * @param {!Blockly.Workspace} ws The workspace to find callers in.
  * @param {!Element} mutation New mutation for the callers.
  * @package

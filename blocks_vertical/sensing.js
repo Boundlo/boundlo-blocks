@@ -341,6 +341,30 @@ Blockly.Blocks['sensing_setdragmode'] = {
   }
 };
 
+Blockly.Blocks['sensing_setturbomode'] = {
+  /**
+   * Block to set turbo mode.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_SETTURBOMODE,
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "TURBO",
+          "options": [
+            [Blockly.Msg.SENSING_SETTURBOMODE_ON, 'on'],
+            [Blockly.Msg.SENSING_SETTURBOMODE_OFF, 'off']
+          ]
+        }
+      ],
+      "category": Blockly.Categories.sensing,
+      "extensions": ["colours_sensing", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['sensing_loudness'] = {
   /**
    * Block to report loudness
@@ -358,15 +382,74 @@ Blockly.Blocks['sensing_loudness'] = {
 
 Blockly.Blocks['sensing_loud'] = {
   /**
-   * Block to report if the loudness is "loud" (greater than 10). This is an
-   * obsolete block that is implemented for compatibility with Scratch 2.0 and
-   * 1.4 projects.
+   * Block to report if the loudness is "loud" (greater than 10).
    * @this Blockly.Block
    */
   init: function() {
     this.jsonInit({
       "message0": Blockly.Msg.SENSING_LOUD,
       "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_sensing", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_turbomode'] = {
+  /**
+   * Block to report if turbo mode is on.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_TURBOMODE,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_sensing", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_online'] = {
+  /**
+   * Block to report if user is online.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_ONLINE,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_sensing", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_mobile'] = {
+  /**
+   * Block to report if user is on mobile.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_MOBILE,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_sensing", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_draggable'] = {
+  /**
+   * Block to report if object is draggable.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_DRAGGABLE,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
       "extensions": ["colours_sensing", "output_boolean"]
     });
   }
@@ -387,6 +470,21 @@ Blockly.Blocks['sensing_timer'] = {
   }
 };
 
+Blockly.Blocks['sensing_objectname'] = {
+  /**
+   * Block to report object name
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_OBJECTNAME,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": false,
+      "extensions": ["colours_sensing", "output_number"]
+    });
+  }
+};
+
 Blockly.Blocks['sensing_resettimer'] = {
   /**
    * Block to reset timer
@@ -400,6 +498,7 @@ Blockly.Blocks['sensing_resettimer'] = {
     });
   }
 };
+
 
 Blockly.Blocks['sensing_of_object_menu'] = {
   /**
@@ -416,6 +515,49 @@ Blockly.Blocks['sensing_of_object_menu'] = {
           "options": [
             ['Sprite1', 'Sprite1'],
             ['Stage', '_stage_']
+          ]
+        }
+      ],
+      "category": Blockly.Categories.sensing,
+      "extensions": ["colours_sensing", "output_string"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_behind'] = {
+  /**
+   * no documentation
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_BEHIND,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OBJMENU"
+        }
+      ],
+      "category": Blockly.Categories.sensing,
+      "extensions": ["colours_sensing", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_behind_menu'] = {
+  /**
+   * layer object menu
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "OBJECT",
+          "options": [
+            ['Sprite1', 'Sprite1']
           ]
         }
       ],
@@ -444,10 +586,18 @@ Blockly.Blocks['sensing_of'] = {
             [Blockly.Msg.SENSING_OF_DIRECTION, 'direction'],
             [Blockly.Msg.SENSING_OF_COSTUMENUMBER, 'costume #'],
             [Blockly.Msg.SENSING_OF_COSTUMENAME, 'costume name'],
+            [Blockly.Msg.SENSING_OF_LASTCOSTUME_NUMBER, 'last costume (number)'],
+            [Blockly.Msg.SENSING_OF_LASTCOSTUME_NAME, 'last costume (name)'],
             [Blockly.Msg.SENSING_OF_SIZE, 'size'],
             [Blockly.Msg.SENSING_OF_VOLUME, 'volume'],
+            [Blockly.Msg.SENSING_OF_LAYER, 'layer'],
+            [Blockly.Msg.SENSING_OF_VISIBLE, 'visible'],
+            [Blockly.Msg.SENSING_OF_NAME, 'name'],
+            [Blockly.Msg.SENSING_OF_CLONESAMOUNT, 'clones amount'],
             [Blockly.Msg.SENSING_OF_BACKDROPNUMBER, 'backdrop #'],
-            [Blockly.Msg.SENSING_OF_BACKDROPNAME, 'backdrop name']
+            [Blockly.Msg.SENSING_OF_BACKDROPNAME, 'backdrop name'],
+            [Blockly.Msg.SENSING_OF_LASTBACKDROP_NUMBER, 'last backdrop (number)'],
+            [Blockly.Msg.SENSING_OF_LASTBACKDROP_NAME, 'last backdrop (name)']
           ]
         },
         {
@@ -493,6 +643,68 @@ Blockly.Blocks['sensing_current'] = {
   }
 };
 
+Blockly.Blocks['sensing_sensorpressed'] = {
+  /**
+   * Block to report idk fwhat
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_SENSORPRESSED,
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PROPERTY",
+          "options": [
+            [Blockly.Msg.SENSING_SENSORPRESSED_BUTTONPRESSED, 'button pressed'],
+            [Blockly.Msg.SENSING_SENSORPRESSED_ACONNECTED, 'A connected'],
+            [Blockly.Msg.SENSING_SENSORPRESSED_BCONNECTED, 'B connected'],
+            [Blockly.Msg.SENSING_SENSORPRESSED_CCONNECTED, 'C connected'],
+            [Blockly.Msg.SENSING_SENSORPRESSED_DCONNECTED, 'D connected']
+          ]
+        }
+      ],
+      "output": true,
+      "category": Blockly.Categories.sensing,
+      "outputShape": Blockly.OUTPUT_SHAPE_HEXAGONAL,
+      "extensions": ["colours_sensing"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_sensor'] = {
+  /**
+   * Block to report idk what
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_SENSOR,
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PROPERTY",
+          "options": [
+            [Blockly.Msg.SENSING_SENSOR_SLIDER, 'slider'],
+            [Blockly.Msg.SENSING_SENSOR_LIGHT, 'light'],
+            [Blockly.Msg.SENSING_SENSOR_SOUND, 'sound'],
+            [Blockly.Msg.SENSING_SENSOR_RESISTANCE_A, 'resistance-A'],
+            [Blockly.Msg.SENSING_SENSOR_RESISTANCE_B, 'resistance-B'],
+            [Blockly.Msg.SENSING_SENSOR_RESISTANCE_C, 'resistance-C'],
+            [Blockly.Msg.SENSING_SENSOR_RESISTANCE_D, 'resistance-D'],
+            [Blockly.Msg.SENSING_SENSOR_TILT, 'tilt'],
+            [Blockly.Msg.SENSING_SENSOR_DISTANCE, 'distance']
+          ]
+        }
+      ],
+      "output": true,
+      "category": Blockly.Categories.sensing,
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "extensions": ["colours_sensing"]
+    });
+  }
+};
+
 Blockly.Blocks['sensing_dayssince2000'] = {
   /**
    * Block to report days since 2000
@@ -507,14 +719,44 @@ Blockly.Blocks['sensing_dayssince2000'] = {
   }
 };
 
-Blockly.Blocks['sensing_online'] = {
+Blockly.Blocks['sensing_os'] = {
   /**
-   * Block to report whether or not the system is online
+   * Block to report user's operating system.
    * @this Blockly.Block
    */
   init: function() {
     this.jsonInit({
-      "message0": Blockly.Msg.SENSING_ONLINE,
+      "message0": Blockly.Msg.SENSING_OS,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_sensing", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_browser'] = {
+  /**
+   * Block to report user's browser.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_BROWSER,
+      "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_sensing", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['sensing_loggedin'] = {
+  /**
+   * Block to report if user is logged in.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.SENSING_LOGGEDIN,
       "category": Blockly.Categories.sensing,
       "checkboxInFlyout": true,
       "extensions": ["colours_sensing", "output_boolean"]
@@ -539,15 +781,14 @@ Blockly.Blocks['sensing_username'] = {
 
 Blockly.Blocks['sensing_userid'] = {
   /**
-   * Block to report user's ID. Does not actually do anything. This is an
-   * obsolete block that is implemented for compatibility with Scratch 2.0
-   * projects.
+   * Block to report user's ID.
    * @this Blockly.Block
    */
   init: function() {
     this.jsonInit({
       "message0": Blockly.Msg.SENSING_USERID,
       "category": Blockly.Categories.sensing,
+      "checkboxInFlyout": true,
       "extensions": ["colours_sensing", "output_number"]
     });
   }

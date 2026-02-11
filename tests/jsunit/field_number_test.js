@@ -29,7 +29,7 @@ function test_fieldnumber_constructor() {
   var field = new Blockly.FieldNumber();
   assertEquals(field.getValue(), '0');
 
-  // Unlike blockly, scratch-blocks doesn't store min, max, and precision.
+  // Unlike blockly, boundlo-blocks doesn't store min, max, and precision.
   // TODO: Update this to check the restrictor, based on min, max, and precision.
   assertEquals(field.min_, undefined);
   assertEquals(field.max_, undefined);
@@ -53,7 +53,7 @@ function test_fieldnumber_constructor() {
     /* min */ -128,
     /* max */ 127,
     /* precision */ 1);
-  // Unlike blockly, scratch-blocks doesn't store min, max, and precision.
+  // Unlike blockly, boundlo-blocks doesn't store min, max, and precision.
   assertEquals(field.getValue(), '0');
   assertEquals(field.min_, undefined);
   assertEquals(field.max_, undefined);
@@ -70,7 +70,7 @@ function test_fieldnumber_fromJson() {
   assertEquals(Blockly.FieldNumber.fromJson({}).getValue(), '0');
   assertEquals(Blockly.FieldNumber.fromJson({ value: 1 }).getValue(), '1');
 
-  // All options, but scratch-blocks parses min/max/precision differently from
+  // All options, but boundlo-blocks parses min/max/precision differently from
   // Blockly.  See notes in field_number.js.
   var field = Blockly.FieldNumber.fromJson({
       value: 0,

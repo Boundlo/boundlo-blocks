@@ -266,7 +266,7 @@ Blockly.BlockDragger.prototype.endBlockDrag = function(e, currentDragDeltaXY) {
 
   if (isOutside) {
     var ws = this.workspace_;
-    // Reset a drag to outside of scratch-blocks
+    // Reset a drag to outside of boundlo-blocks
     setTimeout(function() {
       ws.undo();
     });

@@ -33,7 +33,7 @@ goog.require('goog.userAgent');
 
 /**
  * Class for an editable number field.
- * In scratch-blocks, the min/max/precision properties are only used
+ * In boundlo-blocks, the min/max/precision properties are only used
  * to construct a restrictor on typable characters, and to inform the pop-up
  * numpad on touch devices.
  * These properties are included here (i.e. instead of just accepting a

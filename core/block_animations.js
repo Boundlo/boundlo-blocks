@@ -89,7 +89,7 @@ Blockly.BlockAnimations.connectionUiEffect = function(block) {
 
 /**
  * Play some UI effects (sound, animation) when disconnecting a block.
- * No-op in scratch-blocks, which has no disconnect animation.
+ * No-op in boundlo-blocks, which has no disconnect animation.
  * @param {!Blockly.BlockSvg} _block The block being disconnected.
  * @package
  */
@@ -100,7 +100,7 @@ Blockly.BlockAnimations.disconnectUiEffect = function(
 
 /**
  * Stop the disconnect UI animation immediately.
- * No-op in scratch-blocks, which has no disconnect animation.
+ * No-op in boundlo-blocks, which has no disconnect animation.
  * @package
  */
 Blockly.BlockAnimations.disconnectUiStop = function() {

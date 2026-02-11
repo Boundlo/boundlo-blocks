@@ -76,6 +76,27 @@ Blockly.Blocks['operator_subtract'] = {
   }
 };
 
+Blockly.Blocks['operator_casesensitive'] = {
+  /**
+   * Block to make contained blocks case sensitive
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_CASESENSITIVE,
+      "message1": "%1", // Statement
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "SUBSTACK"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['operator_multiply'] = {
   /**
    * Block for multiplying two numbers.
@@ -120,6 +141,82 @@ Blockly.Blocks['operator_divide'] = {
       ],
       "category": Blockly.Categories.operators,
       "extensions": ["colours_operators", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_to'] = {
+  /**
+   * Block for make smth to smth.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_TO,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VAL1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "PROPERTY",
+          "options": [
+            [Blockly.Msg.OPERATORS_TO_NUMBER, 'number'],
+            [Blockly.Msg.OPERATORS_TO_NEGATIVE, 'negative'],
+            [Blockly.Msg.OPERATORS_TO_POSITIVE, 'positive'],
+            [Blockly.Msg.OPERATORS_TO_BOOL, 'boolean'],
+            [Blockly.Msg.OPERATORS_TO_STRING, 'string'],
+            [Blockly.Msg.OPERATORS_TO_LOWERCASE, 'lowercase'],
+            [Blockly.Msg.OPERATORS_TO_UPPERCASE, 'uppercase'],
+            [Blockly.Msg.OPERATORS_TO_REVERSE, 'reversed'],
+            [Blockly.Msg.OPERATORS_TO_SHUFFLE, 'shuffled']
+          ]
+        }
+      ],
+      "output": true,
+      "category": Blockly.Categories.operators,
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "extensions": ["colours_operators"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_is'] = {
+  /**
+   * Block for identifying if smth is smth.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_IS,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VAL1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "PROPERTY",
+          "options": [
+            [Blockly.Msg.OPERATORS_TO_NUMBER, 'number'],
+            [Blockly.Msg.OPERATORS_TO_NEGATIVE, 'negative'],
+            [Blockly.Msg.OPERATORS_TO_POSITIVE, 'positive'],
+            [Blockly.Msg.OPERATORS_IS_INTEGER, 'integer'],
+            [Blockly.Msg.OPERATORS_IS_PRIMENUMBER, 'prime number'],
+            [Blockly.Msg.OPERATORS_IS_ODDNUMBER, 'odd number'],
+            [Blockly.Msg.OPERATORS_IS_EVENNUMBER, 'even number'],
+            [Blockly.Msg.OPERATORS_TO_BOOL, 'boolean'],
+            [Blockly.Msg.OPERATORS_TO_STRING, 'string'],
+            [Blockly.Msg.OPERATORS_TO_LOWERCASE, 'lowercase'],
+            [Blockly.Msg.OPERATORS_TO_UPPERCASE, 'uppercase']
+          ]
+        }
+      ],
+      "output": true,
+      "category": Blockly.Categories.operators,
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "extensions": ["colours_operators"]
     });
   }
 };
@@ -195,6 +292,29 @@ Blockly.Blocks['operator_equals'] = {
     });
   }
 };
+Blockly.Blocks['operator_notequals'] = {
+  /**
+   * Block for not equals comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_NOTEQUALS,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
 
 Blockly.Blocks['operator_gt'] = {
   /**
@@ -220,6 +340,110 @@ Blockly.Blocks['operator_gt'] = {
   }
 };
 
+Blockly.Blocks['operator_gtoet'] = {
+  /**
+   * Block for greater than or equal to comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_GTOET,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_mgt'] = {
+  /**
+   * Block for much greater than comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_MGT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND3"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_mlt'] = {
+  /**
+   * Block for much less than comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_MLT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND3"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_ltoet'] = {
+  /**
+   * Block for less than or equal to comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_LTOET,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
 Blockly.Blocks['operator_and'] = {
   /**
    * Block for "and" boolean comparator.
@@ -228,6 +452,32 @@ Blockly.Blocks['operator_and'] = {
   init: function() {
     this.jsonInit({
       "message0": Blockly.Msg.OPERATORS_AND,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1",
+          "check": "Boolean"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2",
+          "check": "Boolean"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_nand'] = {
+  /**
+   * Block for "nand" boolean comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_NAND,
       "args0": [
         {
           "type": "input_value",
@@ -272,6 +522,84 @@ Blockly.Blocks['operator_or'] = {
   }
 };
 
+Blockly.Blocks['operator_nor'] = {
+  /**
+   * Block for "nor" boolean comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_NOR,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1",
+          "check": "Boolean"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2",
+          "check": "Boolean"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_xor'] = {
+  /**
+   * Block for "xor" boolean comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_XOR,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1",
+          "check": "Boolean"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2",
+          "check": "Boolean"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_xnor'] = {
+  /**
+   * Block for "xnor" boolean comparator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_XNOR,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "OPERAND1",
+          "check": "Boolean"
+        },
+        {
+          "type": "input_value",
+          "name": "OPERAND2",
+          "check": "Boolean"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
 Blockly.Blocks['operator_not'] = {
   /**
    * Block for "not" unary boolean operator.
@@ -289,6 +617,76 @@ Blockly.Blocks['operator_not'] = {
       ],
       "category": Blockly.Categories.operators,
       "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_false'] = {
+  /**
+   * Block for false.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_FALSE,
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_true'] = {
+  /**
+   * Block for true.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_TRUE,
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_infinity'] = {
+  /**
+   * Block for Infinity.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_INFINITY,
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_pi'] = {
+  /**
+   * Block for PI.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_PI,
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_euler'] = {
+  /**
+   * Block for Eulers Number.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_EULER,
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_number"]
     });
   }
 };
@@ -392,7 +790,31 @@ Blockly.Blocks['operator_mod'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": Blockly.Msg.OPERATORS_MOD,
+      "message0": '%1 \% %2',
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "NUM1"
+        },
+        {
+          "type": "input_value",
+          "name": "NUM2"
+        }
+      ],
+      "category": Blockly.Categories.operators,
+      "extensions": ["colours_operators", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['operator_exponent'] = {
+  /**
+   * Block for exponent two numbers.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.OPERATORS_EXPONENT,
       "args0": [
         {
           "type": "input_value",

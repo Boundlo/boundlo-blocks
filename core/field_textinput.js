@@ -391,7 +391,7 @@ Blockly.FieldTextInput.prototype.onDocumentKeyDown_ = function(e) {
 /**
  * Key codes that are whitelisted from the restrictor.
  * These are only needed and used on Gecko (Firefox).
- * See: https://github.com/LLK/scratch-blocks/issues/503.
+ * See: https://github.com/scratchfoundation/scratch-blocks/issues/503.
  */
 Blockly.FieldTextInput.GECKO_KEYCODE_WHITELIST = [
   97, // Select all, META-A.

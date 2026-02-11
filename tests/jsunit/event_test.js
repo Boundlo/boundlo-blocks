@@ -803,7 +803,7 @@ function test_events_newblock_newvar_xml() {
 
     var firedEvents = workspace.undoStack_;
     // Expect two events: varCreate and block create.
-    // TODO: scratch-blocks also has move and delete events.
+    // TODO: boundlo-blocks also has move and delete events.
     // assertEquals(2, firedEvents.length);
 
     var event0 = firedEvents[0];

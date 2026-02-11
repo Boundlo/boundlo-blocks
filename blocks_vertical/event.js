@@ -94,6 +94,123 @@ Blockly.Blocks['event_whenflagclicked'] = {
   }
 };
 
+Blockly.Blocks['event_always'] = {
+  /**
+   * Block for always
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_always",
+      "message0": Blockly.Msg.EVENT_ALWAYS,
+      "args0": [
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "always.svg",
+          "width": 24,
+          "height": 24,
+          "alt": "flag"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_hat"]
+    });
+  }
+};
+
+Blockly.Blocks['event_never'] = {
+  /**
+   * Block for never (joke block and yes im never removing this lollll)
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_never",
+      "message0": Blockly.Msg.EVENT_NEVER,
+      "args0": [
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "never.svg",
+          "width": 24,
+          "height": 24,
+          "alt": "flag"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_hat"]
+    });
+  }
+};
+
+Blockly.Blocks['event_whenstopclicked'] = {
+  /**
+   * Block for when stop clicked.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_whenstopclicked",
+      "message0": Blockly.Msg.EVENT_WHENSTOPCLICKED,
+      "args0": [
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "stop-sign.svg",
+          "width": 24,
+          "height": 24,
+          "alt": "flag"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_hat"]
+    });
+  }
+};
+
+
+Blockly.Blocks['event_when_is_true'] = {
+  /**
+   * Fires when the condition is true.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_when_is_true",
+      "message0": Blockly.Msg.EVENT_WHENISTRUE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CONDITION",
+          "check": "Boolean"
+        }
+      ],
+      "category": Blockly.Categories.control,
+      "extensions": ["colours_event", "shape_hat"]
+    });
+  }
+};
+
+Blockly.Blocks['event_while_is_true'] = {
+  /**
+   * Fires continuously while the condition is true.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_while_is_true",
+      "message0": Blockly.Msg.EVENT_WHILEISTRUE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CONDITION",
+          "check": "Boolean"
+        }
+      ],
+      "category": Blockly.Categories.control,
+      "extensions": ["colours_event", "shape_hat"]
+    });
+  }
+};
+
 Blockly.Blocks['event_whenthisspriteclicked'] = {
   /**
    * Block for when this sprite clicked.
@@ -146,6 +263,27 @@ Blockly.Blocks['event_whenbroadcastreceived'] = {
   }
 };
 
+Blockly.Blocks['event_isbroadcastreceived'] = {
+  /**
+   * Block for bool broadcast received.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_isbroadcastreceived",
+      "message0": Blockly.Msg.EVENT_ISBROADCASTRECEIVED,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "BROADCAST_INPUT"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "output_boolean"]
+    });
+  }
+};
+
 Blockly.Blocks['event_whenbackdropswitchesto'] = {
   /**
    * Block for when the current backdrop switched to a selected backdrop.
@@ -189,6 +327,26 @@ Blockly.Blocks['event_whengreaterthan'] = {
         {
           "type": "input_value",
           "name": "VALUE"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_hat"]
+    });
+  }
+};
+
+Blockly.Blocks['event_every'] = {
+  /**
+   * Block
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.EVENT_EVERY,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "SECONDS"
         }
       ],
       "category": Blockly.Categories.event,

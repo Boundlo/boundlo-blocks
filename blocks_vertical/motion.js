@@ -48,6 +48,36 @@ Blockly.Blocks['motion_movesteps'] = {
   }
 };
 
+Blockly.Blocks['motion_movestepsindirection'] = {
+  /**
+   * Block to move steps in a direction.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_MOVESTEPSINDIRECTION,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "STEPS"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "DIRECTION",
+          "options": [
+            [Blockly.Msg.MOTION_MOVESTEPSINDIRECTION_CURRENT, 'current'],
+            [Blockly.Msg.MOTION_MOVESTEPSINDIRECTION_OPPOSITE, 'opposite'],
+            [Blockly.Msg.MOTION_MOVESTEPSINDIRECTION_UP, 'up'],
+            [Blockly.Msg.MOTION_MOVESTEPSINDIRECTION_DOWN, 'down']
+          ]
+        }
+      ],
+      "category": Blockly.Categories.motion,
+      "extensions": ["colours_motion", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['motion_turnright'] = {
   /**
    * Block to turn right.
@@ -477,6 +507,43 @@ Blockly.Blocks['motion_direction'] = {
       "category": Blockly.Categories.motion,
       "checkboxInFlyout": true,
       "extensions": ["colours_motion", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['motion_rotationstyle'] = {
+  /**
+   * Block to report current rotation style.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_ROTATIONSTYLE,
+      "category": Blockly.Categories.motion,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_motion", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['motion_turnaround'] = {
+  /**
+   * Block to turn around 
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_TURNAROUND,
+      "args0": [
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "turnaround.svg",
+          "width": 24,
+          "height": 24
+        },
+      ],
+      "category": Blockly.Categories.motion,
+      "extensions": ["colours_motion", "shape_statement"]
     });
   }
 };

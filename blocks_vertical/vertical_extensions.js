@@ -19,7 +19,7 @@
  */
 
 /**
- * @fileoverview Extensions for vertical blocks in scratch-blocks.
+ * @fileoverview Extensions for vertical blocks in boundlo-blocks.
  * The following extensions can be used to describe a block in Scratch terms.
  * For instance, a block in the operators colour scheme with a number output
  * would have the "colours_operators" and "output_number" extensions.
@@ -215,10 +215,10 @@ Blockly.ScratchBlocks.VerticalExtensions.PROCEDURE_CALL_CONTEXTMENU = {
 
 
 Blockly.ScratchBlocks.VerticalExtensions.SCRATCH_EXTENSION = function() {
-  this.isScratchExtension = true;
+  this.isBoundloExtension = true;
 };
 /**
- * Register all extensions for scratch-blocks.
+ * Register all extensions for boundlo-blocks.
  * @package
  */
 Blockly.ScratchBlocks.VerticalExtensions.registerAll = function() {

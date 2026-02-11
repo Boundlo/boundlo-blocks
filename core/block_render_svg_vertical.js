@@ -835,7 +835,7 @@ Blockly.BlockSvg.prototype.renderCompute_ = function(iconWidth) {
         lastType && lastType == Blockly.NEXT_STATEMENT;
     var row;
     // Don't create a new row for the second dummy input on a procedure block.
-    // See github.com/LLK/scratch-blocks/issues/1658
+    // See github.com/scratchfoundation/scratch-blocks/issues/1658
     // In all other cases, statement and value inputs catch all preceding dummy
     // inputs, and cause a line break before following inputs.
     if (!isSecondInputOnProcedure &&
@@ -905,7 +905,7 @@ Blockly.BlockSvg.prototype.renderCompute_ = function(iconWidth) {
       field.renderWidth = fieldSize.width;
       field.renderSep = (previousFieldEditable && field.EDITABLE) ?
           Blockly.BlockSvg.SEP_SPACE_X : 0;
-      // See github.com/LLK/scratch-blocks/issues/1658
+      // See github.com/scratchfoundation/scratch-blocks/issues/1658
       if (!isSecondInputOnProcedure) {
         input.fieldWidth += field.renderWidth + field.renderSep;
       }
@@ -1113,7 +1113,7 @@ Blockly.BlockSvg.prototype.computeOutputPadding_ = function(inputRows) {
     }
     // Special case for hexagonal output: if the connection is larger height
     // than a standard reporter, add some start padding.
-    // https://github.com/LLK/scratch-blocks/issues/376
+    // https://github.com/scratchfoundation/scratch-blocks/issues/376
     if (shape == Blockly.OUTPUT_SHAPE_HEXAGONAL &&
         otherShape != Blockly.OUTPUT_SHAPE_HEXAGONAL) {
       var deltaHeight = firstInput.renderHeight - Blockly.BlockSvg.MIN_BLOCK_Y_REPORTER;
@@ -1139,7 +1139,7 @@ Blockly.BlockSvg.prototype.computeOutputPadding_ = function(inputRows) {
     }
     // Special case for hexagonal output: if the connection is larger height
     // than a standard reporter, add some end padding.
-    // https://github.com/LLK/scratch-blocks/issues/376
+    // https://github.com/scratchfoundation/scratch-blocks/issues/376
     if (shape == Blockly.OUTPUT_SHAPE_HEXAGONAL &&
         otherShape != Blockly.OUTPUT_SHAPE_HEXAGONAL) {
       var deltaHeight = lastInput.renderHeight - Blockly.BlockSvg.MIN_BLOCK_Y_REPORTER;

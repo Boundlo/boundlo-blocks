@@ -57,7 +57,7 @@ CLOSURE_DIR_NPM = "node_modules"
 CLOSURE_ROOT_NPM = os.path.join("node_modules")
 CLOSURE_LIBRARY_NPM = "google-closure-library"
 CLOSURE_COMPILER_NPM = ("google-closure-compiler.cmd" if os.name == "nt" else "google-closure-compiler")
-
+print("Warning: 'build.py' is ran, please wait for it to finish compiling boundlo-blocks or the build will spew errors!")
 def import_path(fullpath):
   """Import a file with full path specification.
   Allows one to import from any directory, something __import__ does not do.
@@ -146,6 +146,7 @@ window.BLOCKLY_BOOT = function() {
     }
   }
 """))
+    print("Making file \'" + target_filename + "\' ..")
     add_dependency = []
     base_path = calcdeps.FindClosureBasePath(self.search_paths)
     for dep in calcdeps.BuildDependenciesFromFiles(self.search_paths):
@@ -189,7 +190,7 @@ if (isNodeJS) {
 }
 """))
     f.close()
-    print("SUCCESS: " + target_filename)
+    print("Success! File made: \'" + target_filename + "\'")
 
   def format_js(self, code):
     """Format JS in a way that python's format method can work with to not
@@ -303,6 +304,7 @@ class Gen_compressed(threading.Thread):
     self.do_compile(params, target_filename, filenames, remove)
 
   def do_compile(self, params, target_filename, filenames, remove):
+    print("Shrinking file \'" + target_filename + "\' ..")
     if self.closure_env["closure_compiler"] == REMOTE_COMPILER:
       do_compile = self.do_compile_remote
     else:
@@ -330,7 +332,7 @@ class Gen_compressed(threading.Thread):
       # Build the final args array by prepending CLOSURE_COMPILER_NPM to
       # dash_args and dropping any falsy members
       args = []
-      for group in [[CLOSURE_COMPILER_NPM], dash_args]:
+      for group in [["node", "node_modules/google-closure-compiler/cli.js"], dash_args]:
         args.extend(filter(lambda item: item, group))
 
       proc = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
@@ -429,7 +431,7 @@ class Gen_compressed(threading.Thread):
 
   def write_output(self, target_filename, remove, json_data):
       if "compiledCode" not in json_data:
-        print("FATAL ERROR: Compiler did not return compiledCode.")
+        print("Sudden Fatal! Compiler did not return compiledCode. Aborting...")
         sys.exit(1)
 
       code = HEADER + "\n" + json_data["compiledCode"].decode("utf-8")
@@ -474,11 +476,10 @@ class Gen_compressed(threading.Thread):
         original_kb = int(original_b / 1024 + 0.5)
         compressed_kb = int(compressed_b / 1024 + 0.5)
         ratio = int(float(compressed_b) / float(original_b) * 100 + 0.5)
-        print("SUCCESS: " + target_filename)
-        print("Size changed from %d KB to %d KB (%d%%)." % (
+        print("Success! Shrinked file \'" + target_filename + "\' from %d KB to %d KB (%d%%)." % (
             original_kb, compressed_kb, ratio))
       else:
-        print("UNKNOWN ERROR")
+        print("Sudden Failure! Got unknown error, build will spew errors! Please abort!")
 
 
 class Gen_langfiles(threading.Thread):
@@ -506,7 +507,7 @@ class Gen_langfiles(threading.Thread):
           # If a destination file was missing, rebuild.
           return True
       else:
-        print("Error checking file creation times: " + str(e))
+        print("Failure! Got a error when checking file creation times: \'" + str(e) + "\'")
 
   def run(self):
     # The files msg/json/{en,qqq,synonyms}.json depend on msg/messages.js.
@@ -523,7 +524,7 @@ class Gen_langfiles(threading.Thread):
       except (subprocess.CalledProcessError, OSError) as e:
         # Documentation for subprocess.check_call says that CalledProcessError
         # will be raised on failure, but I found that OSError is also possible.
-        print("Error running i18n/js_to_json.py: ", e)
+        print("Failure! Got a error when running i18n/js_to_json.py: \'", e, "\'")
         sys.exit(1)
 
     # Checking whether it is necessary to rebuild the js files would be a lot of
@@ -546,7 +547,7 @@ class Gen_langfiles(threading.Thread):
       cmd.extend(json_files)
       subprocess.check_call(cmd)
     except (subprocess.CalledProcessError, OSError) as e:
-      print("Error running i18n/create_messages.py: ", e)
+      print("Failure! Got a error when running i18n/create_messages.py: \'", e, "\'")
       sys.exit(1)
 
     # Output list of .js files created.
@@ -554,16 +555,16 @@ class Gen_langfiles(threading.Thread):
       # This assumes the path to the current directory does not contain "json".
       f = f.replace("json", "js")
       if os.path.isfile(f):
-        print("SUCCESS: " + f)
+        print("Success! File made: \'" + f + "\'")
       else:
-        print("FAILED to create " + f)
+        print("Failure! The file failed to compile: \'" + f + "\'")
 
 def exclude_vertical(item):
   return not item.endswith("block_render_svg_vertical.js")
 
 def exclude_horizontal(item):
   return not item.endswith("block_render_svg_horizontal.js")
-
+print("Starting compiler...")
 if __name__ == "__main__":
   try:
     closure_dir = CLOSURE_DIR_NPM
@@ -581,9 +582,9 @@ if __name__ == "__main__":
     (stdout, _) = test_proc.communicate()
     assert stdout.decode("utf-8") == read(os.path.join("build", "test_expect.js"))
 
-    print("Using local compiler: %s ...\n" % CLOSURE_COMPILER_NPM)
+    print("Success! Compiler is using local compiler: %s ...\n" % CLOSURE_COMPILER_NPM)
   except (ImportError, AssertionError):
-    print("Using remote compiler: closure-compiler.appspot.com ...\n")
+    print("Success! Compiler is using remote compiler: closure-compiler.appspot.com ...\n")
 
     try:
       closure_dir = CLOSURE_DIR

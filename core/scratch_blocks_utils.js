@@ -33,7 +33,7 @@ goog.provide('Blockly.scratchBlocksUtils');
 
 /**
  * Measure some text using a canvas in-memory.
- * Does not exist in Blockly, but needed in scratch-blocks
+ * Does not exist in Blockly, but needed in boundlo-blocks
  * @param {string} fontSize E.g., '10pt'
  * @param {string} fontFamily E.g., 'Arial'
  * @param {string} fontWeight E.g., '600'
@@ -52,7 +52,7 @@ Blockly.scratchBlocksUtils.measureText = function(fontSize, fontFamily,
 /**
  * Encode a string's HTML entities.
  * E.g., <a> -> &lt;a&gt;
- * Does not exist in Blockly, but needed in scratch-blocks
+ * Does not exist in Blockly, but needed in boundlo-blocks
  * @param {string} rawStr Unencoded raw string to encode.
  * @return {string} String with HTML entities encoded.
  * @package
@@ -89,7 +89,7 @@ Blockly.scratchBlocksUtils.changeObscuredShadowIds = function(block) {
 
 /**
  * Whether a block is both a shadow block and an argument reporter.  These
- * blocks have special behaviour in scratch-blocks: they're duplicated when
+ * blocks have special behaviour in boundlo-blocks: they're duplicated when
  * dragged, and they are rendered slightly differently from normal shadow
  * blocks.
  * @param {!Blockly.BlockSvg} block The block that should be used to make this

@@ -80,7 +80,7 @@ Blockly.InsertionMarkerManager = function(block) {
   /**
    * The insertion marker that shows up between blocks to show where a block
    * would go if dropped immediately.
-   * This is the scratch-blocks equivalent of connection highlighting.
+   * This is the boundlo-blocks equivalent of connection highlighting.
    * @type {Blockly.BlockSvg}
    * @private
    */
@@ -117,7 +117,7 @@ Blockly.InsertionMarkerManager = function(block) {
   /**
    * Connection on the insertion marker block that corresponds to
    * this.localConnection_ on the currently dragged block.
-   * This is part of the scratch-blocks equivalent of connection highlighting.
+   * This is part of the boundlo-blocks equivalent of connection highlighting.
    * @type {Blockly.RenderedConnection}
    * @private
    */

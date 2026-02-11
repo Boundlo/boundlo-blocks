@@ -48,7 +48,7 @@ Blockly.ScratchMsgs.currentLocale_ = 'en';
 
 /**
  * Change the Blockly.Msg strings to a new Locale
- * Does not exist in Blockly, but needed in scratch-blocks
+ * Does not exist in Blockly, but needed in boundlo-blocks
  * @param {string} locale E.g., 'de', or 'zh-tw'
  * @package
  */

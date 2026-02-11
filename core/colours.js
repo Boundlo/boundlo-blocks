@@ -87,6 +87,13 @@ Blockly.Colours = {
     "tertiary": "#E64D00",
     "quaternary": "#E64D00"
   },
+  //Not implemented colour
+  "extrablockcolors_notimplemented": {
+    "primary": "#353030ff",
+    "secondary": "#353434ff",
+    "tertiary": "#1b1b1bff",
+    "quaternary": "#161616ff"
+  },
   "more": {
     "primary": "#FF6680",
     "secondary": "#FF4D6A",

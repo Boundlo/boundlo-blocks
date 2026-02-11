@@ -686,7 +686,7 @@ Blockly.Connection.prototype.setCheck = function(check) {
 
 /**
  * Returns a shape enum for this connection.
- * Used in scratch-blocks to draw unoccupied inputs.
+ * Used in boundlo-blocks to draw unoccupied inputs.
  * @return {number} Enum representing shape.
  */
 Blockly.Connection.prototype.getOutputShape = function() {

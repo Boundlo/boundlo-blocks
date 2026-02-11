@@ -72,6 +72,20 @@ Blockly.Blocks['looks_say'] = {
   }
 };
 
+Blockly.Blocks['looks_saynothing'] = {
+  /**
+   * Say nothing block.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_SAYNOTHING,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['looks_thinkforsecs'] = {
   /**
    * Block to think for some time.
@@ -116,6 +130,20 @@ Blockly.Blocks['looks_think'] = {
   }
 };
 
+Blockly.Blocks['looks_thinknothing'] = {
+  /**
+   * Think nothing block.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_THINKNOTHING,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['looks_show'] = {
   /**
    * Show block.
@@ -146,14 +174,40 @@ Blockly.Blocks['looks_hide'] = {
 
 Blockly.Blocks['looks_hideallsprites'] = {
   /**
-   * Hide-all-sprites block. Does not actually do anything. This is an
-   * obsolete block that is implemented for compatibility with Scratch 2.0
-   * projects.
+   * Hide-all-sprites block. Hides all sprites.
    * @this Blockly.Block
    */
   init: function() {
     this.jsonInit({
       "message0": Blockly.Msg.LOOKS_HIDEALLSPRITES,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_showallsprites'] = {
+  /**
+   * Show-all-sprites block. Shows all sprites.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_SHOWALLSPRITES,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_stopspeaking'] = {
+  /**
+   * stops speaking
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_STOPSPEAKING,
       "category": Blockly.Categories.looks,
       "extensions": ["colours_looks", "shape_statement"]
     });
@@ -260,6 +314,46 @@ Blockly.Blocks['looks_changesizeby'] = {
   }
 };
 
+Blockly.Blocks['looks_changecostumeby'] = {
+  /**
+   * Block to change costume
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_CHANGECOSTUMEBY,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CHANGE"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_changebackdropby'] = {
+  /**
+   * Block to change backdrop
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_CHANGEBACKDROPBY,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CHANGE"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['looks_setsizeto'] = {
   /**
    * Block to set size
@@ -295,18 +389,108 @@ Blockly.Blocks['looks_size'] = {
   }
 };
 
+Blockly.Blocks['looks_totallayers'] = {
+  /**
+   * Block to report the total layers
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_TOTALLAYERS,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_golayerinfrontofbehindobject'] = {
+  /**
+   * jh
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_GOLAYERINFRONTOFBEHINDOBJECT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "LAYER"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPTS",
+          "options": [
+            [Blockly.Msg.LOOKS_GOLAYERINFRONTOFBEHINDOBJECT_INFRONTOF, 'in front of'],
+            [Blockly.Msg.LOOKS_GOLAYERINFRONTOFBEHINDOBJECT_BEHIND, 'behind']
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "OBJMENU"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_golayerinfrontofbehindobject_menu'] = {
+  /**
+   * "* of _" object menu.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "OBJECT",
+          "options": [
+            ['Sprite1', 'Sprite1']
+          ]
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "output_string"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_layer'] = {
+  /**
+   * Block to report layer
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_LAYER,
+      "category": Blockly.Categories.looks,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_looks", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_visible'] = {
+  /**
+   * Block to report if object is hidden or not.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_VISIBLE,
+      "category": Blockly.Categories.looks,
+      "checkboxInFlyout": true,
+      "extensions": ["colours_looks", "output_boolean"]
+    });
+  }
+};
+
 Blockly.Blocks['looks_changestretchby'] = {
   /**
-   * Block to change stretch. Does not actually do anything. This is an
-   * obsolete block that is implemented for compatibility with Scratch 1.4
-   * projects as well as 2.0 projects that still have the block.
-   * The "stretch" blocks were introduced in very early versions of Scratch,
-   * but their functionality was removed shortly later. They still appeared
-   * correctly up until (and including) Scratch 1.4 - as "change stretch by"
-   * and "set stretch to" - but were removed altogether in Scratch 2.0, and
-   * displayed as red "undefined" blocks. Some Scratch projects still contain
-   * these blocks, however, and they don't open in 3.0 unless the blocks
-   * actually exist (though they still don't funcitonally do anything).
+   * Block to change stretch.
    * @this Blockly.Block
    */
   init: function() {
@@ -326,9 +510,7 @@ Blockly.Blocks['looks_changestretchby'] = {
 
 Blockly.Blocks['looks_setstretchto'] = {
   /**
-   * Block to set stretch. Does not actually do anything. This is an obsolete
-   * block that is implemented for compatibility with Scratch 1.4 projects
-   * (see looks_changestretchby).
+   * Block to set stretch.
    * @this Blockly.Block
    */
   init: function() {
@@ -338,6 +520,86 @@ Blockly.Blocks['looks_setstretchto'] = {
         {
           "type": "input_value",
           "name": "STRETCH"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_changevisibilityby'] = {
+  /**
+   * Block to change visibility.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_CHANGEVISIBILITYBY,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CHANGE"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_setvisibilityto'] = {
+  /**
+   * Block to set visibility.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_SETVISIBILITYTO,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VISIBILITY"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_gotolayer'] = {
+  /**
+   * "Go to [Number] layer" Block.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_GOTOLAYER,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "NUM"
+        }
+      ],
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_fxtest'] = {
+  /**
+   * "color fx test
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_FXTEST,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "NUM"
         }
       ],
       "category": Blockly.Categories.looks,
@@ -401,6 +663,20 @@ Blockly.Blocks['looks_nextcostume'] = {
   init: function() {
     this.jsonInit({
       "message0": Blockly.Msg.LOOKS_NEXTCOSTUME,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_previouscostume'] = {
+  /**
+   * Block to switch the sprite's costume to the previous one.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_PREVIOUSCOSTUME,
       "category": Blockly.Categories.looks,
       "extensions": ["colours_looks", "shape_statement"]
     });
@@ -520,7 +796,9 @@ Blockly.Blocks['looks_backdropnumbername'] = {
           "name": "NUMBER_NAME",
           "options": [
             [Blockly.Msg.LOOKS_NUMBERNAME_NUMBER, 'number'],
-            [Blockly.Msg.LOOKS_NUMBERNAME_NAME, 'name']
+            [Blockly.Msg.LOOKS_NUMBERNAME_NAME, 'name'],
+            [Blockly.Msg.LOOKS_NUMBERNAME_LASTNUMBER, 'last (number)'],
+            [Blockly.Msg.LOOKS_NUMBERNAME_LASTNAME, 'last (name)']
           ]
         }
       ],
@@ -545,7 +823,9 @@ Blockly.Blocks['looks_costumenumbername'] = {
           "name": "NUMBER_NAME",
           "options": [
             [Blockly.Msg.LOOKS_NUMBERNAME_NUMBER, 'number'],
-            [Blockly.Msg.LOOKS_NUMBERNAME_NAME, 'name']
+            [Blockly.Msg.LOOKS_NUMBERNAME_NAME, 'name'],
+            [Blockly.Msg.LOOKS_NUMBERNAME_LASTNUMBER, 'last (number)'],
+            [Blockly.Msg.LOOKS_NUMBERNAME_LASTNAME, 'last (name)']
           ]
         }
       ],
@@ -584,6 +864,20 @@ Blockly.Blocks['looks_nextbackdrop'] = {
   init: function() {
     this.jsonInit({
       "message0": Blockly.Msg.LOOKS_NEXTBACKDROP_BLOCK,
+      "category": Blockly.Categories.looks,
+      "extensions": ["colours_looks", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['looks_previousbackdrop'] = {
+  /**
+   * Block to switch the backdrop to the previous one.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.LOOKS_PREVIOUSBACKDROP_BLOCK,
       "category": Blockly.Categories.looks,
       "extensions": ["colours_looks", "shape_statement"]
     });

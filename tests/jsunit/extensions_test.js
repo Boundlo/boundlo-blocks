@@ -170,7 +170,7 @@ function test_parent_tooltip_when_inline() {
 
     // Tooltip is normal before connected to parent.
     var parent = new Blockly.Block(workspace, 'test_parent');
-    // Inputs default to inline in scratch-blocks.
+    // Inputs default to inline in boundlo-blocks.
     parent.setInputsInline(false);
     assertEquals(parent.tooltip, parentTooltip);
     assertFalse(!!parent.inputsInline);
